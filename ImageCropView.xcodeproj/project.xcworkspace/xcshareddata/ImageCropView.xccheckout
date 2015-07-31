@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CFD02BC4-58FC-4CBB-A101-08F4117FED31</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ImageCropView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1C4D53C77BE2D734D5201E50A5E0B0DDCD910232</key>
+		<string>https://github.com/aishwaryak/PosterizeIOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ImageCropView.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1C4D53C77BE2D734D5201E50A5E0B0DDCD910232</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aishwaryak/PosterizeIOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1C4D53C77BE2D734D5201E50A5E0B0DDCD910232</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1C4D53C77BE2D734D5201E50A5E0B0DDCD910232</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Posterize-latest</string>
+		</dict>
+	</array>
+</dict>
+</plist>
