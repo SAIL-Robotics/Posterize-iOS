@@ -20,6 +20,10 @@
     NSLog(@"Loading printfinalposter");
     [_printposterView setImage:_image];
     
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    UIImage *imagebgTop = [UIImage imageNamed:@"background.jpg"];
+    [navBar setBackgroundImage:imagebgTop forBarMetrics:UIBarMetricsDefault];
+    
 
     NSLog(@"total papes %d",_totalPapers);
  
@@ -27,7 +31,7 @@
     _orientationLabel.text = _orientation;
     //[_orientationLabel setText:_orientation];
     
-     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
     NSLog(@"The original poster size : width : %ff and height : %f",_totalA4Width,_totalA4Height);
     
     [self cropImage:_printposterView.image];

@@ -20,7 +20,7 @@
     [super viewDidLoad];
     [_imageView setImage:_image];
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -32,6 +32,10 @@
     _heightText.delegate = self;
     
     [self.view addGestureRecognizer:tap];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    UIImage *imagebgTop = [UIImage imageNamed:@"background.jpg"];
+    [navBar setBackgroundImage:imagebgTop forBarMetrics:UIBarMetricsDefault];
     
     
 

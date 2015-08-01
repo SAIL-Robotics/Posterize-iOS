@@ -22,7 +22,7 @@
     
     
     // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
     CGSize size = [_posterView.image size];
   
     //TODO - check if this is right
@@ -47,6 +47,10 @@
     
     _totalA4Width = _newWidth / _a4Width;
     _totalA4Height = _newHeight / _a4Height;
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    UIImage *imagebgTop = [UIImage imageNamed:@"background.jpg"];
+    [navBar setBackgroundImage:imagebgTop forBarMetrics:UIBarMetricsDefault];
 
     
     [self drawCutLine:size :_totalA4Width :_totalA4Height];

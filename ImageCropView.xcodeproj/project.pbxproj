@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		379BF6351B6C1DAE003180B7 /* PrintFinalPosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BF6341B6C1DAE003180B7 /* PrintFinalPosterViewController.m */; };
 		37B7A76D1B69CE82006C2070 /* UserInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7A76C1B69CE82006C2070 /* UserInputViewController.m */; };
-		37EE616B1B69BCAE000AFB2B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EE616A1B69BCAE000AFB2B /* background.png */; };
 		6B85BF2719F74EA400B7F16A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85BF2619F74EA400B7F16A /* FXBlurView.m */; };
 		6B85BF2919F74EB400B7F16A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B85BF2819F74EB400B7F16A /* Accelerate.framework */; };
 		6B85BF2B19F74EB800B7F16A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B85BF2A19F74EB800B7F16A /* QuartzCore.framework */; };
 		9343B5AE1B6B27D900CEDA36 /* PosterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9343B5AD1B6B27D900CEDA36 /* PosterController.m */; };
+		9343B5B01B6D357F00CEDA36 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9343B5AF1B6D357F00CEDA36 /* background.jpg */; };
+		9343B5B21B6D36A000CEDA36 /* camera_fade.png in Resources */ = {isa = PBXBuildFile; fileRef = 9343B5B11B6D36A000CEDA36 /* camera_fade.png */; };
+		93B115F31B6D3A3A00FA0831 /* forward_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B115F21B6D3A3A00FA0831 /* forward_arrow.png */; };
+		93B115F51B6D3A5900FA0831 /* backward_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B115F41B6D3A5900FA0831 /* backward_arrow.png */; };
 		96CFD13F168D308D00BAEEE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD13E168D308D00BAEEE6 /* UIKit.framework */; };
 		96CFD141168D308D00BAEEE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD140168D308D00BAEEE6 /* Foundation.framework */; };
 		96CFD143168D308D00BAEEE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD142168D308D00BAEEE6 /* CoreGraphics.framework */; };
@@ -37,13 +40,16 @@
 		379BF6341B6C1DAE003180B7 /* PrintFinalPosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintFinalPosterViewController.m; sourceTree = "<group>"; };
 		37B7A76B1B69CE82006C2070 /* UserInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputViewController.h; sourceTree = "<group>"; };
 		37B7A76C1B69CE82006C2070 /* UserInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInputViewController.m; sourceTree = "<group>"; };
-		37EE616A1B69BCAE000AFB2B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		6B85BF2519F74EA400B7F16A /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		6B85BF2619F74EA400B7F16A /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		6B85BF2819F74EB400B7F16A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		6B85BF2A19F74EB800B7F16A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9343B5AC1B6B27C400CEDA36 /* PosterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PosterController.h; sourceTree = "<group>"; };
 		9343B5AD1B6B27D900CEDA36 /* PosterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosterController.m; sourceTree = "<group>"; };
+		9343B5AF1B6D357F00CEDA36 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		9343B5B11B6D36A000CEDA36 /* camera_fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_fade.png; sourceTree = "<group>"; };
+		93B115F21B6D3A3A00FA0831 /* forward_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_arrow.png; sourceTree = "<group>"; };
+		93B115F41B6D3A5900FA0831 /* backward_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backward_arrow.png; sourceTree = "<group>"; };
 		96CFD13A168D308D00BAEEE6 /* ImageCropView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCropView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CFD13E168D308D00BAEEE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		96CFD140168D308D00BAEEE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -155,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				C2AA0C7E1B69C81B006B3D71 /* EffectsView */,
-				37EE616A1B69BCAE000AFB2B /* background.png */,
 				6B85BF2419F74EA400B7F16A /* FXBlurView */,
 				96CFD145168D308D00BAEEE6 /* Supporting Files */,
 				96CFD14D168D308D00BAEEE6 /* AppDelegate.h */,
@@ -177,6 +182,10 @@
 		C2AA0C7E1B69C81B006B3D71 /* EffectsView */ = {
 			isa = PBXGroup;
 			children = (
+				93B115F41B6D3A5900FA0831 /* backward_arrow.png */,
+				93B115F21B6D3A3A00FA0831 /* forward_arrow.png */,
+				9343B5B11B6D36A000CEDA36 /* camera_fade.png */,
+				9343B5AF1B6D357F00CEDA36 /* background.jpg */,
 				C2AA0C7F1B69C847006B3D71 /* EffectsView.h */,
 				C2AA0C801B69C85A006B3D71 /* EffectsView.m */,
 			);
@@ -247,7 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CFD149168D308D00BAEEE6 /* InfoPlist.strings in Resources */,
-				37EE616B1B69BCAE000AFB2B /* background.png in Resources */,
+				9343B5B21B6D36A000CEDA36 /* camera_fade.png in Resources */,
+				93B115F51B6D3A5900FA0831 /* backward_arrow.png in Resources */,
+				9343B5B01B6D357F00CEDA36 /* background.jpg in Resources */,
+				93B115F31B6D3A3A00FA0831 /* forward_arrow.png in Resources */,
 				CE786DB61910477500800637 /* Main.storyboard in Resources */,
 				96CFD151168D308D00BAEEE6 /* Default.png in Resources */,
 				96CFD153168D308D00BAEEE6 /* Default@2x.png in Resources */,

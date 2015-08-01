@@ -23,14 +23,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    imageCropView.image = [UIImage imageNamed:@"pict.jpeg"];
-    imageCropView.controlColor = [UIColor cyanColor];
+    
     [_crop setHidden:YES];
     [_measure setHidden:YES];
     
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
+
     
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
-//    _scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(50,50,320,480)];
+    UIImage *btnImage = [UIImage imageNamed:@"camera_fade.png"];
+    [_camera setImage:btnImage forState:UIControlStateNormal];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    UIImage *imagebgTop = [UIImage imageNamed:@"background.jpg"];
+    [navBar setBackgroundImage:imagebgTop forBarMetrics:UIBarMetricsDefault];
+    
+    
+    
+    //    _scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(50,50,320,480)];
 //    _scrollView.showsVerticalScrollIndicator=YES;
 //    _scrollView.scrollEnabled=YES;
 //    _scrollView.userInteractionEnabled=YES;
@@ -87,6 +96,7 @@
     [_crop setHidden:NO];
 //    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
 //    self.navigationItem.leftBarButtonItem = backButton;
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self
