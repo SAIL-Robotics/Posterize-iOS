@@ -12,22 +12,34 @@
 	<dict>
 		<key>1C4D53C77BE2D734D5201E50A5E0B0DDCD910232</key>
 		<string>https://github.com/aishwaryak/PosterizeIOS.git</string>
+		<key>E1F62EF3F5D01A4DDB06F38E3A5B8E2CB9F800B7</key>
+		<string>https://github.com/SAIL-Robotics/Posterize-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ImageCropView.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1C4D53C77BE2D734D5201E50A5E0B0DDCD910232</key>
+		<string>../../../Posterize-latest</string>
+		<key>E1F62EF3F5D01A4DDB06F38E3A5B8E2CB9F800B7</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/aishwaryak/PosterizeIOS.git</string>
+	<string>https://github.com/SAIL-Robotics/Posterize-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1C4D53C77BE2D734D5201E50A5E0B0DDCD910232</string>
+	<string>E1F62EF3F5D01A4DDB06F38E3A5B8E2CB9F800B7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E1F62EF3F5D01A4DDB06F38E3A5B8E2CB9F800B7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Posterize-iOS</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		379BF6351B6C1DAE003180B7 /* PrintFinalPosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BF6341B6C1DAE003180B7 /* PrintFinalPosterViewController.m */; };
 		37B7A76D1B69CE82006C2070 /* UserInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B7A76C1B69CE82006C2070 /* UserInputViewController.m */; };
 		37EE616B1B69BCAE000AFB2B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EE616A1B69BCAE000AFB2B /* background.png */; };
 		6B85BF2719F74EA400B7F16A /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B85BF2619F74EA400B7F16A /* FXBlurView.m */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		379BF6331B6C1DAE003180B7 /* PrintFinalPosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintFinalPosterViewController.h; sourceTree = "<group>"; };
+		379BF6341B6C1DAE003180B7 /* PrintFinalPosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintFinalPosterViewController.m; sourceTree = "<group>"; };
 		37B7A76B1B69CE82006C2070 /* UserInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputViewController.h; sourceTree = "<group>"; };
 		37B7A76C1B69CE82006C2070 /* UserInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInputViewController.m; sourceTree = "<group>"; };
 		37EE616A1B69BCAE000AFB2B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				CE786DB51910477500800637 /* Main.storyboard */,
 				37B7A76B1B69CE82006C2070 /* UserInputViewController.h */,
 				37B7A76C1B69CE82006C2070 /* UserInputViewController.m */,
+				379BF6331B6C1DAE003180B7 /* PrintFinalPosterViewController.h */,
+				379BF6341B6C1DAE003180B7 /* PrintFinalPosterViewController.m */,
 				96CFD156168D308D00BAEEE6 /* ViewController.h */,
 				96CFD157168D308D00BAEEE6 /* ViewController.m */,
 			);
@@ -257,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379BF6351B6C1DAE003180B7 /* PrintFinalPosterViewController.m in Sources */,
 				96CFD14B168D308D00BAEEE6 /* main.m in Sources */,
 				C2AA0C931B69D3DB006B3D71 /* UIImage+Filtrr.m in Sources */,
 				C2AA0C811B69C85A006B3D71 /* EffectsView.m in Sources */,

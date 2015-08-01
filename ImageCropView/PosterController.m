@@ -7,6 +7,8 @@
 //
 
 #import "PosterController.h"
+#import "PrintFinalPosterViewController.h"
+
 @interface PosterController ()
 
 @end
@@ -16,13 +18,39 @@
     NSLog(@"Here!");
     [super viewDidLoad];
     [_posterView setImage:_image];
+      _tempImage = _image;
+    
     
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]]];
     CGSize size = [_posterView.image size];
-    int totalA4Width = (int) _totalA4Width;
-    int totalA4Height = (int)_totalA4Height;
-    [self drawCutLine:size :totalA4Width :totalA4Height];
+  
+    //TODO - check if this is right
+    //int totalA4Width = (int) _totalA4Width;
+    //int totalA4Height = (int)_totalA4Height;
+  
+    _a4Height = 11;
+    _a4Width = 8.27;
+    
+    NSLog(@"newww4width 1 and height %f %f",_newWidth,_newHeight);
+    
+    _orientation = @"Potrait";
+    if(_newWidth > _newHeight)        //landscape is best. swap values
+    {
+        double tmp = _newWidth;
+        _newWidth = _newHeight;
+        _newHeight = tmp;
+        _orientation = @"Landscape";
+        
+    }
+   
+    
+    _totalA4Width = _newWidth / _a4Width;
+    _totalA4Height = _newHeight / _a4Height;
+
+    
+    [self drawCutLine:size :_totalA4Width :_totalA4Height];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +58,14 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) drawCutLine:(CGSize) size: (NSInteger) totalA4Width : (NSInteger) totalA4Height {
+-(void) drawCutLine:(CGSize) size: (double) totalA4Width : (double) totalA4Height {
+    
+    
+    NSLog(@"Totala4width and height %f %f",totalA4Width,totalA4Height);
+   
+    int totalPapers = (int)(ceil(totalA4Width) * ceil(totalA4Height));
+    _totalPapers = totalPapers;
+    
     UIGraphicsBeginImageContext(_posterView.image.size);
     
     
@@ -40,10 +75,12 @@
     // Pass 2: Draw the line on top of original image
    
     
-    NSLog(@" totak width %ld and h %ld",(long)totalA4Width,(long)totalA4Height);
+    //NSLog(@" totak width %ld and h %ld",(long)totalA4Width,(long)totalA4Height);
     
     double loopWidth = size.width / totalA4Width;
     double loopHeight = size.height / totalA4Height;
+    
+    NSLog(@"CGSIZE %f %f",size.width,size.height);
     
     NSLog(@" loop width %f and h %f",loopWidth,loopHeight);
     
@@ -108,6 +145,9 @@
 }
 
 - (IBAction)optimizeButtonClick:(id)sender {
+    
+    //Unmodified image ku setting
+    [_posterView setImage:_tempImage];
     CGSize size = _posterView.image.size;
     double oldWidth = size.width;
     double oldHeight = size.height;
@@ -154,10 +194,13 @@
     
     newTotalPapers = (int)(ceil(totalA4Width) * ceil(totalA4Height));
     
+    
+    
     //Log.e("CutImage", totalA4Width +" "+ totalA4Height + " " + newTotalPapers);
     
     if(totalPapers == newTotalPapers)
     {
+        _totalPapers = newTotalPapers;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Optimization"
                                                         message:@"Good to go, optimization not required!"
                                                        delegate:nil
@@ -168,8 +211,10 @@
     }
     else
     {
+        _totalPapers = totalPapers - newTotalPapers;
+        NSString* messageString = [NSString stringWithFormat: @"Optimized, you just saved %d number of papers",totalPapers-newTotalPapers];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Optimization"
-                                                        message:@"Optimized"
+                                                        message:messageString
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -177,11 +222,46 @@
         //Toast.makeText(getApplication(), "You just saved "+ (totalPapers - newTotalPapers) + " papers", Toast.LENGTH_SHORT).show();
     }
     
+    NSLog(@"optimize - Before sending totalA4width : %f and height : %f",totalA4Width,totalA4Height);
     
-    //_totalA4Width = totalA4Width ;
-    //_totalA4Height = totalA4Height;
-   // Log.e("CutImage", totalA4Width +" "+ totalA4Height);
-    //afterOptimize.setText(totalA4Width + "  " + totalA4Height);
+    _totalA4Width = totalA4Width ;
+    _totalA4Height = totalA4Height;
+  
+    
    [self drawCutLine:size :totalA4Width :totalA4Height];
 }
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    NSLog(@" From view controller The segue identifer %@",segue.identifier);
+    
+    if([segue.identifier isEqualToString:@"printPDFSegue"])
+    {
+        NSLog(@"printPDFSegue");
+        
+        PrintFinalPosterViewController *controller = (PrintFinalPosterViewController *)segue.destinationViewController;
+        controller.image = _tempImage;
+        
+        NSLog(@"Before sending totalA4width : %f and height : %f and total pages %d",_totalA4Width,_totalA4Height,_totalPapers);
+        controller.totalA4Width = _totalA4Width;
+        controller.totalA4Height = _totalA4Height;
+        controller.orientation = _orientation;
+        controller.totalPapers = _totalPapers;
+        
+        
+    }
+    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    NSLog(@" From view controller should perform segue");
+    
+    return YES;
+    
+}
+
 @end
