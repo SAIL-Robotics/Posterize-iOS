@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (assign,nonatomic) int touchCount;
 
+
 - (IBAction)setWidth:(UIButton *)sender;
 - (IBAction)setHeight:(UIButton *)sender;
 

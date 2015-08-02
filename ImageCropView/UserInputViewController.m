@@ -120,6 +120,7 @@
         CameraRuler *cr = (CameraRuler *)segue.destinationViewController;
         
     
+    
     }
     
     }
