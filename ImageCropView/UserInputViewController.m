@@ -9,6 +9,7 @@
 #import "UserInputViewController.h"
 #import "ViewController.h"
 #import "PosterController.h"
+#import "CameraRuler.h"
 
 @interface UserInputViewController ()
 
@@ -105,6 +106,11 @@
         //controller.stringForVC2 = @"some string";
         // here you have passed the value //
         
+    }
+    if([segue.identifier isEqualToString:@"rulerSegue"]){
+        CameraRuler *cr = (CameraRuler *)segue.destinationViewController;
+        
+    
     }
     
     }
@@ -219,6 +225,25 @@
        
    }
 }
+
+
+//- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//{
+//    rulerImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+//    
+//    rulerImageView.image = rulerImage;
+//  
+//    //    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
+//    //    self.navigationItem.leftBarButtonItem = backButton;
+//    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+//                                             initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+//                                             target:self
+//                                             action:@selector(cancel:)];
+//    [picker dismissViewControllerAnimated:NO completion:nil];
+//    
+//}
+
 
 -(double) aspectRatio:(double) oldWidth: (double) oldHeight: (double) newSize: (BOOL) isWidth {
     double factor;

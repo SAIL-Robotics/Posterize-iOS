@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UserInputViewController : UIViewController {
-    
+   
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *widthText;
@@ -18,9 +18,11 @@
 @property (assign, nonatomic) double * totalA4Height;
 @property (nonatomic,strong) UIImage * image;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (assign,nonatomic) int touchCount;
 
 - (IBAction)setWidth:(UIButton *)sender;
 - (IBAction)setHeight:(UIButton *)sender;
+
 
 
 @end
