@@ -7,6 +7,7 @@
 //
 
 #import "PrintFinalPosterViewController.h"
+#import "DisplayFinalPDFViewController.h"
 
 @interface PrintFinalPosterViewController ()
 
@@ -19,6 +20,7 @@
     // Do any additional setup after loading the view.
     NSLog(@"Loading printfinalposter");
     [_printposterView setImage:_image];
+    [_printposterView setHidden:YES];
     
     self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     
@@ -70,7 +72,16 @@
 
 - (void) cropImage:(UIImage *)croppedImage {
     
+    time_t unixTime = (time_t) [[NSDate date] timeIntervalSince1970];
+    NSString *timestamp=[NSString stringWithFormat:@"%ld",unixTime];
     
+    _fileName = @"mypdf";
+    
+    _fileName = [_fileName stringByAppendingString:timestamp];
+     _fileName = [_fileName stringByAppendingString:@".pdf"];
+    NSLog(@"FILE NAME %@", _fileName);
+    
+    [_fileLabel setText:_fileName];
     NSLog(@"cutting image");
     
     CGSize size = [croppedImage size];
@@ -78,7 +89,7 @@
     CGFloat pageOffset = 0;
     NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
     NSString* documentDirectory = [documentDirectories objectAtIndex:0];
-    NSString *pdfFileName = [documentDirectory stringByAppendingPathComponent:@"mypdf.pdf"];
+    NSString *pdfFileName = [documentDirectory stringByAppendingPathComponent:_fileName];
     UIGraphicsBeginPDFContextToFile(pdfFileName, CGRectZero, nil);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -147,11 +158,9 @@
     
     //imageDivision
     
-    
-    
     UIGraphicsEndPDFContext();
+    
 }
-
 
 
 - (void) makeRectangle:(NSInteger) startX: (NSInteger) startY : (NSInteger) width : (NSInteger) height: (UIImage *) cutImage {
@@ -185,6 +194,19 @@
         UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
         [cutImageView.image drawInRect:CGRectMake(0, 0, 612,792)];
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    NSLog(@" The segue identifer %@",segue.identifier);
+    if([segue.identifier isEqualToString:@"displayPDFSegue"])
+    {
+        DisplayFinalPDFViewController *controller = (DisplayFinalPDFViewController *)segue.destinationViewController;
+        controller.fileName = _fileName;
+    }
+    
 }
 
 

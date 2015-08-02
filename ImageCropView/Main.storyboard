@@ -86,7 +86,7 @@
                     <navigationItem key="navigationItem" id="ePN-Bg-fDd">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="SUv-4j-4Gw">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C7l-pt-ZTT">
-                                <rect key="frame" x="252" y="-17" width="52" height="32"/>
+                                <rect key="frame" x="259" y="6" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="forward_arrow.png">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -218,7 +218,7 @@
                     <navigationItem key="navigationItem" title="Poster Measurements" id="LVH-lP-dV9">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="KPF-Il-vzV">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hw6-Yc-JZz">
-                                <rect key="frame" x="252" y="-17" width="52" height="32"/>
+                                <rect key="frame" x="259" y="6" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="forward_arrow.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -335,7 +335,7 @@
                     <navigationItem key="navigationItem" title="Optimize Pages" id="CjH-Lh-X0G">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="oY8-qJ-psV">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rKJ-kF-CbM">
-                                <rect key="frame" x="252" y="-25" width="52" height="32"/>
+                                <rect key="frame" x="259" y="6" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="forward_arrow.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -367,7 +367,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G77-CF-5vN">
-                                <rect key="frame" x="27" y="14" width="227" height="343"/>
+                                <rect key="frame" x="111" y="270" width="98" height="138"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of pages:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G60-YY-g3R">
                                 <rect key="frame" x="45" y="47" width="138" height="21"/>
@@ -393,11 +393,33 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-gz-yW6">
+                                <rect key="frame" x="120" y="232" width="81" height="30"/>
+                                <state key="normal" title="Locate PDF">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hxP-pT-xtv" kind="push" identifier="displayPDFSegue" id="Vbf-A0-hfB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="File:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZX-rz-PKs">
+                                <rect key="frame" x="58" y="159" width="32" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvy-tg-jc0">
+                                <rect key="frame" x="124" y="149" width="184" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Poster Summary" id="xiy-oz-Lja"/>
                     <connections>
+                        <outlet property="fileLabel" destination="Xvy-tg-jc0" id="Yo0-r6-LCJ"/>
                         <outlet property="orientationLabel" destination="3GE-g0-bwd" id="5oh-HR-QzS"/>
                         <outlet property="pagesLabel" destination="U5d-Ve-KK9" id="koQ-sY-fAQ"/>
                         <outlet property="printposterView" destination="G77-CF-5vN" id="RiX-Oh-Kin"/>
@@ -406,6 +428,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPM-rj-4pm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1629" y="94"/>
+        </scene>
+        <!--Display PDF-->
+        <scene sceneID="RkK-ze-rih">
+            <objects>
+                <viewController id="hxP-pT-xtv" customClass="DisplayFinalPDFViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7W9-DD-d7v"/>
+                        <viewControllerLayoutGuide type="bottom" id="xTS-ab-qUn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8vm-rW-tQJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feT-mo-X9I">
+                                <rect key="frame" x="0.0" y="12" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Display PDF" id="1dB-AE-wi7"/>
+                    <connections>
+                        <outlet property="webView" destination="feT-mo-X9I" id="muk-qg-lGe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOs-md-3dV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2071" y="94"/>
         </scene>
     </scenes>
     <resources>

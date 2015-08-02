@@ -20,11 +20,17 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *printposterView;
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+
 @property (assign, nonatomic) NSString*  orientation;
 @property (assign,nonatomic) int totalPapers;
 
 @property (weak, nonatomic) IBOutlet UILabel *pagesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orientationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fileLabel;
+
+@property (copy, nonatomic) NSString * fileName;
 
 
 @end

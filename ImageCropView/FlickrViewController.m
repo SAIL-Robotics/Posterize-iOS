@@ -78,7 +78,6 @@ NSString *kUploadImageStep = @"kUploadImageStep";
                 NSData* data = [NSData dataWithContentsOfURL:photoURL];
                 UIImage *image = [UIImage imageWithData:data];
                 NSError* error;
-                //this works
                 NSLog(@"URL %@",photoURL);
                 NSString *stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"Response data being called : %@", stringData);

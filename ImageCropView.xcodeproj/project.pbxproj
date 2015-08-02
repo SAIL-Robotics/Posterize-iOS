@@ -25,6 +25,7 @@
 		93B115F31B6D3A3A00FA0831 /* forward_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B115F21B6D3A3A00FA0831 /* forward_arrow.png */; };
 		93B115F51B6D3A5900FA0831 /* backward_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B115F41B6D3A5900FA0831 /* backward_arrow.png */; };
 		93B115F81B6DF29600FA0831 /* FlickrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B115F71B6DF29600FA0831 /* FlickrViewController.m */; };
+		93B115FC1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B115FB1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m */; };
 		96CFD13F168D308D00BAEEE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD13E168D308D00BAEEE6 /* UIKit.framework */; };
 		96CFD141168D308D00BAEEE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD140168D308D00BAEEE6 /* Foundation.framework */; };
 		96CFD143168D308D00BAEEE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD142168D308D00BAEEE6 /* CoreGraphics.framework */; };
@@ -70,6 +71,8 @@
 		93B115F61B6DF29600FA0831 /* FlickrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrViewController.h; sourceTree = "<group>"; };
 		93B115F71B6DF29600FA0831 /* FlickrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrViewController.m; sourceTree = "<group>"; };
 		93B115F91B6DFB5600FA0831 /* SampleAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAPIKey.h; sourceTree = "<group>"; };
+		93B115FA1B6EC2D000FA0831 /* DisplayFinalPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayFinalPDFViewController.h; sourceTree = "<group>"; };
+		93B115FB1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayFinalPDFViewController.m; sourceTree = "<group>"; };
 		96CFD13A168D308D00BAEEE6 /* ImageCropView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCropView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CFD13E168D308D00BAEEE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		96CFD140168D308D00BAEEE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -206,6 +209,8 @@
 				93B115F71B6DF29600FA0831 /* FlickrViewController.m */,
 				C29EA7DB1B6D97EF001585C8 /* CameraRuler.m */,
 				9343B5AD1B6B27D900CEDA36 /* PosterController.m */,
+				93B115FA1B6EC2D000FA0831 /* DisplayFinalPDFViewController.h */,
+				93B115FB1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m */,
 				CE786DB51910477500800637 /* Main.storyboard */,
 				37B7A76B1B69CE82006C2070 /* UserInputViewController.h */,
 				37B7A76C1B69CE82006C2070 /* UserInputViewController.m */,
@@ -374,6 +379,7 @@
 				96CFD158168D308D00BAEEE6 /* ViewController.m in Sources */,
 				37B7A76D1B69CE82006C2070 /* UserInputViewController.m in Sources */,
 				9343B5AE1B6B27D900CEDA36 /* PosterController.m in Sources */,
+				93B115FC1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m in Sources */,
 				96CFD163168D309800BAEEE6 /* ImageCropView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
