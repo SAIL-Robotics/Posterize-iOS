@@ -6,15 +6,19 @@
 //
 //
 #import "CameraRuler.h"
+#import "UserInputViewController.h"
 @interface CameraRuler ()
 
 @end
 
 @implementation CameraRuler
 NSMutableArray *touchPointsArray;
-double knownRealDistance, unknownRealDistance;
+double knownRealDistance, unknownRealDistance,measurement;
+int selected = 0;
 -(void)viewDidLoad{
     [_resetButton setEnabled:NO];
+    [_calculate setEnabled:NO];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
 //    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
 //            {
 //                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -51,12 +55,31 @@ double knownRealDistance, unknownRealDistance;
     [picker dismissViewControllerAnimated:NO completion:nil];
 
 }
-
+- (IBAction)cancel:(id)sender
+{
+    
+    NSLog(@"Cancel being called.");
+    //[self.navigationController popViewControllerAnimated:YES];
+    [self.view setNeedsDisplay];
+    UIStoryboard* _initalStoryboard;
+    _initalStoryboard = self.storyboard;
+    for (UIView* view in self.view.subviews)
+    {
+        
+        [view removeFromSuperview];
+    }
+    
+    UIViewController* initialScene = [_initalStoryboard instantiateInitialViewController];
+    self.view.window.rootViewController = initialScene;
+    
+    
+}
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"Handle tap!");
     _touchCount++;
     [_resetButton setEnabled:YES];
+    [_calculate setEnabled:YES];
     if(_touchCount <= 4){
         UITouch *touch = [touches anyObject];
         CGPoint touchPoint = [touch locationInView: _rulerImageView];
@@ -80,9 +103,12 @@ double knownRealDistance, unknownRealDistance;
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 2);
-    
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1.0, 0.0, 0.0, 1.0);
-    
+    if(_touchCount == 2){
+    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), [UIColor redColor].CGColor);
+    }
+    else{
+         CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), [UIColor greenColor].CGColor);
+    }
     CGContextBeginPath(UIGraphicsGetCurrentContext());
     
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(),(int) startPoint.x, (int)startPoint.y);
@@ -102,7 +128,7 @@ double coordinateDistance(CGPoint p1, CGPoint p2)
     return sqrt(dist);
 }
 
- double calculateDistance()
+ double calculateDistance(double knownRealDistance)
 {
     CGPoint startPoint = [[touchPointsArray objectAtIndex:0] CGPointValue];
     CGPoint endPoint = [[touchPointsArray objectAtIndex :1] CGPointValue];
@@ -122,6 +148,107 @@ double coordinateDistance(CGPoint p1, CGPoint p2)
     [touchPointsArray removeAllObjects];
     _touchCount = 0;
     [_resetButton setEnabled:NO];
+    [_calculate setEnabled:YES];
+}
+- (IBAction)calculate:(id)sender {
+    NSString *inputValue = _knownValue.text;
+    
+    measurement = calculateDistance([inputValue doubleValue]);
+    NSString* messageString = [NSString stringWithFormat: @"Calculated measurement %f",measurement];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Calculated measurement"
+                                                    message:messageString
+                                                   delegate:self
+                                          cancelButtonTitle:@"Discard"
+                                          otherButtonTitles:@"Set as Width", @"Set as Height",nil];
+    [alert show];
+    
+    
+    
+}
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    
+    
+        if (buttonIndex == 0)
+        {
+            // Cancel Tapped
+            NSLog(@"Discard!!");
+        }
+        else if (buttonIndex == 1)
+        {
+            // DELETE Tapped
+            selected = 1;
+            [self performSegueWithIdentifier: @"setMeasureScreen" sender: self];
+            
+        }
+        else if (buttonIndex == 2)
+        {
+            // DELETE Tapped
+            selected = 2;
+            [self performSegueWithIdentifier: @"setMeasureScreen" sender: self];
+            
+        }
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    NSLog(@" From view controller The segue identifer %@",segue.identifier);
+    
+    if([segue.identifier isEqualToString:@"setMeasureScreen"])
+    {
+        NSLog(@"setMeasureScreen");
+        
+        UserInputViewController *controller = (UserInputViewController *)segue.destinationViewController;
+        controller.image = _originalImage;
+        NSNumber *myDoubleNumber = [NSNumber numberWithDouble:measurement];
+        NSLog(@"Measurement %@",myDoubleNumber);
+        
+        NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+        [fmt setPositiveFormat:@"0.##"];
+        NSString *newText = [fmt stringFromNumber:[NSNumber numberWithFloat:measurement]];
+        measurement = [newText doubleValue];
+        
+        if(selected == 1){
+            
+        controller.widthValue = measurement;
+        }
+        if(selected == 2){
+        controller.heightValue = measurement;
+        }
+        
+        
+        /*UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Return", returnbuttontitle) style:     UIBarButtonItemStyleBordered target:nil action:nil];
+         
+         self.navigationItem.backBarButtonItem = backButton;*/
+        
+        
+        
+        //self.navigationItem.backBarButtonItem.image = [UIImage imageNamed:@"backward_arrow.png"];
+        
+        
+        //controller.stringForVC2 = @"some string";
+        // here you have passed the value //
+        
+    }
+    
+}
+
+- (IBAction)retakePhoto:(id)sender {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+                {
+                    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                    [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+                    [imagePicker setDelegate:self];
+                    [self presentViewController:imagePicker animated:YES completion:nil];
+                }
+                else
+                {
+                    [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your device doesn't have a camera." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    
+                }
 }
 @end
 

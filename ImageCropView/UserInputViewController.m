@@ -20,6 +20,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_imageView setImage:_image];
+    NSLog(@"Value passed %f", _widthValue);
+    if(_widthValue){
+        NSString *value = @(_widthValue).stringValue;
+         [_widthText setText:value];
+        
+       double setHeight = [self aspectRatio:_imageView.image.size.width :_imageView.image.size.height :_widthValue:TRUE]; //get the height based on the given width
+        NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+        [fmt setPositiveFormat:@"0.##"]; //format to two digits
+        NSString *newSetHeightText = [fmt stringFromNumber:[NSNumber numberWithFloat:setHeight]];//Convert to text, in 2 digits
+        setHeight = [newSetHeightText doubleValue]; //Convert to double
+        _heightText.text = @(setHeight).stringValue; //Set to text
+
+        
+    }
+    if(_heightValue){
+        NSString *value = @(_heightValue).stringValue;
+        [_heightText setText:value];
+        double setWidth = [self aspectRatio:_imageView.image.size.width :_imageView.image.size.height : _heightValue :FALSE];
+        NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+        [fmt setPositiveFormat:@"0.##"];
+        NSString *newSetWidthText = [fmt stringFromNumber:[NSNumber numberWithFloat:setWidth]];
+        setWidth = [newSetWidthText doubleValue];
+        _widthText.text = @(setWidth).stringValue;
+    }
+    
     // Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -118,7 +143,7 @@
     }
     if([segue.identifier isEqualToString:@"rulerSegue"]){
         CameraRuler *cr = (CameraRuler *)segue.destinationViewController;
-        
+        cr.originalImage = _image;
     
     
     }

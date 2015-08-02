@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>CFD02BC4-58FC-4CBB-A101-08F4117FED31</string>
 	<key>IDESourceControlProjectName</key>
-	<string>ImageCropView</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E1F62EF3F5D01A4DDB06F38E3A5B8E2CB9F800B7</key>
 		<string>https://github.com/SAIL-Robotics/Posterize-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ImageCropView.xcodeproj</string>
+	<string>ImageCropView.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E1F62EF3F5D01A4DDB06F38E3A5B8E2CB9F800B7</key>

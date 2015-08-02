@@ -19,7 +19,9 @@
 @property (nonatomic,strong) UIImage * image;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (assign,nonatomic) int touchCount;
+@property (assign, nonatomic) double  widthValue;
 
+@property (assign, nonatomic) double  heightValue;
 
 - (IBAction)setWidth:(UIButton *)sender;
 - (IBAction)setHeight:(UIButton *)sender;

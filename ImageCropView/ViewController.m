@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UserInputViewController.h"
 #import "UIImage+FiltrrCompositions.h"
+#import "FlickrViewController.h"
 
 
 @interface ViewController ()
@@ -317,6 +318,14 @@
         //controller.stringForVC2 = @"some string";
         // here you have passed the value //
         
+    }
+    
+    if([segue.identifier isEqualToString:@"flickerSegue"]) {
+        NSLog(@"flicker");
+        
+        FlickrViewController *controller = (FlickrViewController *)segue.destinationViewController;
+       
+
     }
     
 }
