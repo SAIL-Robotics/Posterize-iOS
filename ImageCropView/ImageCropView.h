@@ -90,7 +90,8 @@ typedef struct {
 @protocol ImageCropViewControllerDelegate <NSObject>
 
 - (void)ImageCropViewController:(UIViewController* )controller didFinishCroppingImage:(UIImage *)croppedImage;
-- (void)ImageCropViewControllerDidCancel:(UIViewController *)controller;
+- (void)ImageCropViewController:(UIViewController* )controller ImageCropViewControllerDidCancel:(UIImage *)croppedImage;
+//- (void)ImageCropViewControllerDidCancel:(UIViewController *)controller;
 
 @end
 

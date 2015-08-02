@@ -26,34 +26,33 @@
     
     [_crop setHidden:YES];
     [_measure setHidden:YES];
+    [_camera setHidden:NO];
+    [_posterize setHidden:NO];
+    [_gallery setHidden:NO];
+    [_insta setHidden:NO];
+    
+    imageView.image = nil;
+    //Setting up the loading screen
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
 
     
-    UIImage *btnImage = [UIImage imageNamed:@"camera_fade.png"];
-    [_camera setImage:btnImage forState:UIControlStateNormal];
+    UIImage *imagePosterize = [UIImage imageNamed:@"posterize.png"];
+    [_PosterizeImageView setImage:imagePosterize];
     
+    //UIImage *btnImage = [UIImage imageNamed:@"camera_fade.png"];
+    //[_camera setImage:btnImage forState:UIControlStateNormal];
+    self.navigationItem.title = @"";
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     UINavigationBar *navBar = self.navigationController.navigationBar;
     UIImage *imagebgTop = [UIImage imageNamed:@"background.jpg"];
     [navBar setBackgroundImage:imagebgTop forBarMetrics:UIBarMetricsDefault];
-    
-    
-    
-    //    _scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(50,50,320,480)];
-//    _scrollView.showsVerticalScrollIndicator=YES;
-//    _scrollView.scrollEnabled=YES;
-//    _scrollView.userInteractionEnabled=YES;
-//    [self.view addSubview:_scrollView];
-//    _scrollView.contentSize = CGSizeMake(320,960);
-//    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [button addTarget:self  action:@selector(aMethod:) forControlEvents:UIControlEventTouchDown];
-//    [button setTitle:@"Show View" forState:UIControlStateNormal];
-//    button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
-//    [_scrollView addSubview:button];
+    //Setting image for nav bar
     
     NSLog(@"The newly loadde string is %@ %@",_widthString,_heightString);
 }
+
+
 - ( void )didReceiveMemoryWarning
 {
     //image = nil;
@@ -88,24 +87,44 @@
 {
     image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
+    self.navigationItem.title = @"Image Preview";
+    [_PosterizeImageView setImage:nil];
+    
     imageView.image = image;
     [_camera setHidden:YES];
     [_posterize setHidden:YES];
     [_gallery setHidden:YES];
     [_insta setHidden:YES];
     [_crop setHidden:NO];
+    
 //    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
 //    self.navigationItem.leftBarButtonItem = backButton;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+    
+    
+    UIButton *leftbutton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [leftbutton setFrame:CGRectMake(10.0, 2.0, 45.0, 40.0)];
+    [leftbutton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbutton setImage:[UIImage imageNamed:@"backward_arrow.png"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *leftbarbutton = [[UIBarButtonItem alloc]initWithCustomView:leftbutton];
+    
+    self.navigationItem.leftBarButtonItem = leftbarbutton;
+
+    
+    
+    /*self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self
-                                             action:@selector(cancel:)];
+                                             action:@selector(cancel:)];*/
+    
     [picker dismissViewControllerAnimated:NO completion:nil];
     
 }
 - (void)backButtonPressed
 {
+    
+    NSLog(@"Back button pressed called.");
     [_camera setHidden:NO];
     [_posterize setHidden:NO];
     [_gallery setHidden:NO];
@@ -116,13 +135,9 @@
 }
 - (IBAction)cancel:(id)sender
 {
-    NSLog(@"Cancel");
     
-    /*if ([self.delegate respondsToSelector:@selector(ViewControllerDidCancel:)])
-    {
-        [self.delegate ViewControllerDidCancel:self];
-    }*/
-    //[self viewDidLoad];
+    NSLog(@"Cancel being called.");
+    //[self.navigationController popViewControllerAnimated:YES];
     [self.view setNeedsDisplay];
     UIStoryboard* _initalStoryboard;
     _initalStoryboard = self.storyboard;
@@ -140,13 +155,25 @@
 
 - (IBAction)cropBarButtonClick:(id)sender {
     
-    if(image != nil){
-        NSLog(@"Crop!");
-        ImageCropViewController *controller = [[ImageCropViewController alloc] initWithImage:image];
-        controller.delegate = self;
-        controller.blurredBackground = YES;
-        [self.navigationController pushViewController:controller animated:YES];
+    BOOL hasMeasurementDone = [self isMeasurement];
+    if(!hasMeasurementDone) {
+        if(image != nil){
+            NSLog(@"Crop view controller called!");
+            ImageCropViewController *controller = [[ImageCropViewController alloc] initWithImage:image];
+            controller.delegate = self;
+            controller.blurredBackground = YES;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+        
+    } else {
+        //call the set measurements controller
+        
+        //call the segue
+        [self performSegueWithIdentifier: @"UserInputScreen" sender: self];
+        
     }
+    
+    
 }
 
 - (IBAction)effectOne:(id)sender {
@@ -169,9 +196,17 @@
     imageView.image = [image e5];
 }
 
+-(void)ImageCropViewController:(UIViewController *)controller ImageCropViewControllerDidCancel:(UIImage *)croppedImage {
+    NSLog(@"cancel.");
+    [[self navigationController] popViewControllerAnimated:YES];
+}
 
 - (void)ImageCropViewController:(ImageCropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage{
+    
     NSLog(@"Back!");
+    self.navigationItem.title = @"Add effects";
+    [_PosterizeImageView setImage:nil];
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
    image = croppedImage;
    imageView.image = croppedImage;
     CGFloat compression = 0.9f;
@@ -216,7 +251,11 @@
     
     scrollView.contentSize = CGSizeMake(x, scrollView.frame.size.height);
     scrollView.backgroundColor = [UIColor grayColor];
-    [_measure setHidden:NO];
+    
+    
+    [self setIsMeasurement:YES];
+    
+    [_measure setHidden:YES];
     [self.view addSubview:scrollView];
 }
 
@@ -263,6 +302,18 @@
         
         UserInputViewController *controller = (UserInputViewController *)segue.destinationViewController;
         controller.image = imageView.image;
+        
+        
+        
+        /*UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Return", returnbuttontitle) style:     UIBarButtonItemStyleBordered target:nil action:nil];
+        
+        self.navigationItem.backBarButtonItem = backButton;*/
+        
+
+        
+        //self.navigationItem.backBarButtonItem.image = [UIImage imageNamed:@"backward_arrow.png"];
+        
+                
         //controller.stringForVC2 = @"some string";
         // here you have passed the value //
         
