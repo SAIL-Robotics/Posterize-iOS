@@ -37,8 +37,21 @@
     UIImage *imagebgTop = [UIImage imageNamed:@"background.jpg"];
     [navBar setBackgroundImage:imagebgTop forBarMetrics:UIBarMetricsDefault];
     
-    
+    //For setting the back button
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"backward_arrow.png"]  ;
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
+    backBtn.frame = CGRectMake(10.0, 2.0, 45.0, 40.0);
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+   
+   
+}
 
+- (void)goback
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,12 +95,8 @@
     // Pass the selected object to the new view controller.
     
     NSLog(@" The segue identifer %@",segue.identifier);
-    
     if([segue.identifier isEqualToString:@"posterSegue"])
     {
-        NSLog(@"inside");
-       
-        
         PosterController *controller = (PosterController *)segue.destinationViewController;
        // controller.widthString = widthText;
         //controller.heightString = heightText;
@@ -106,6 +115,13 @@
         // here you have passed the value //
         
     }
+    /*if([segue.identifier isEqualToString:@"backFromMeasurementsToView"])
+    {
+        ViewController *controller = (ViewController *)segue.destinationViewController;
+        controller.imageCropView = _imageView.image;
+        controller.isMeasurement = YES;
+    }*/
+    
     
     }
 
@@ -157,9 +173,6 @@
     return YES;
     
 }
-
-
-
 
 
 

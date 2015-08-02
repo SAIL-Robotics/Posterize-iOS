@@ -5,6 +5,7 @@
 //
 
 #import "ImageCropView.h"
+#import "ViewController.h"
 
 static CGFloat const DEFAULT_MASK_ALPHA = 0.75;
 static bool const square = NO;
@@ -32,6 +33,7 @@ float IMAGE_MIN_WIDTH = 400;
 - (void)loadView
 {
     [super loadView];
+    
 }
 
 
@@ -41,17 +43,44 @@ float IMAGE_MIN_WIDTH = 400;
     if (self){
         UIView *contentView = [[UIView alloc] init];
         contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        contentView.backgroundColor = [UIColor whiteColor];
+        //contentView.backgroundColor = [UIColor whiteColor];
         
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+        
+        [contentView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
+        
+        self.navigationItem.title = @"Crop Image";
+        self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
+        
+        
+        UIButton *leftbutton=[UIButton buttonWithType:UIButtonTypeCustom];
+        [leftbutton setFrame:CGRectMake(10.0, 2.0, 45.0, 40.0)];
+        [leftbutton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+        [leftbutton setImage:[UIImage imageNamed:@"backward_arrow.png"] forState:UIControlStateNormal];
+        
+        UIBarButtonItem *leftbarbutton = [[UIBarButtonItem alloc]initWithCustomView:leftbutton];
+        
+        self.navigationItem.leftBarButtonItem = leftbarbutton;
+        
+        /*self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                                  initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                  target:self
-                                                 action:@selector(cancel:)];
+                                                 action:@selector(cancel:)];*/
         
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+        UIButton *rightbutton=[UIButton buttonWithType:UIButtonTypeCustom];
+        [rightbutton setFrame:CGRectMake(10.0, 2.0, 45.0, 40.0)];
+        [rightbutton addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
+        [rightbutton setImage:[UIImage imageNamed:@"forward_arrow.png"] forState:UIControlStateNormal];
+        
+        UIBarButtonItem *rightbarbutton = [[UIBarButtonItem alloc]initWithCustomView:rightbutton];
+        
+        self.navigationItem.rightBarButtonItem = rightbarbutton;
+        
+        
+        
+        /*self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                   target:self
-                                                  action:@selector(done:)];
+                                                  action:@selector(done:)];*/
         CGSize statusBarSize = [[UIApplication sharedApplication] statusBarFrame].size;
         CGRect view = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - [[self navigationController] navigationBar].bounds.size.height - statusBarSize.height);
         self.cropView  = [[ImageCropView alloc] initWithFrame:view blurOn:self.blurredBackground];
@@ -64,11 +93,15 @@ float IMAGE_MIN_WIDTH = 400;
 - (IBAction)cancel:(id)sender
 {
     
-    if ([self.delegate respondsToSelector:@selector(ImageCropViewControllerDidCancel:)])
+   if ([self.delegate respondsToSelector:@selector(ImageCropViewController:ImageCropViewControllerDidCancel:)])
     {
-        [self.delegate ImageCropViewControllerDidCancel:self];
+        NSLog(@"dsds inside if");
+      //  [self.delegate ImageCropViewControllerDidCancel:self];
+         [self.delegate ImageCropViewController:self ImageCropViewControllerDidCancel:nil];
     }
+    NSLog(@"outside if");
     
+       
 }
 
 - (IBAction)done:(id)sender

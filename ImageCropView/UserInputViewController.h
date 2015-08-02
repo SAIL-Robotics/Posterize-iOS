@@ -18,6 +18,8 @@
 @property (assign, nonatomic) double * totalA4Height;
 @property (nonatomic,strong) UIImage * image;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+- (IBAction)backFromMeasurements:(UIButton *)sender;
+
 
 - (IBAction)setWidth:(UIButton *)sender;
 - (IBAction)setHeight:(UIButton *)sender;

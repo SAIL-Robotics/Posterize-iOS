@@ -32,6 +32,9 @@
 - (IBAction)effectFour:(id)sender;
 - (IBAction)effectFive:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIImageView *PosterizeImageView;
+
+
 @property (nonatomic, weak) id<ViewControllerDelegate> delegate;
 - (IBAction)saveBarButtonClick:(id)sender;
 @property (nonatomic, strong) IBOutlet ImageCropView* imageCropView;
@@ -43,6 +46,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *measure;
 
+@property (nonatomic, assign) BOOL isMeasurement; //To check if the measurement screen has arrived
 
 @property (copy, nonatomic) NSString * widthString;
 @property (copy, nonatomic) NSString * heightString;
