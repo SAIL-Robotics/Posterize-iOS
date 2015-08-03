@@ -81,7 +81,7 @@ MySupplementaryView *headerView;
 - (IBAction)searchButton:(id)sender {
     NSString *kFlickrAPIKey = @"8edbd2463db3dfed6d72a6e019f73838";
     NSString *searchTerm = _searchText.text;
-    NSURL *flickrGetURL =  [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&text=%@&per_page=10&format=json&nojsoncallback=1",kFlickrAPIKey,searchTerm]];
+    NSURL *flickrGetURL =  [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&text=%@&per_page=12&format=json&nojsoncallback=1",kFlickrAPIKey,searchTerm]];
     
     NSData* data = [NSData dataWithContentsOfURL:flickrGetURL];
     NSError* error;
@@ -105,7 +105,7 @@ MySupplementaryView *headerView;
     for(NSString *key in [photoJSON allKeys]) {
         if([key  isEqual: @"photo"]){
             NSLog(@"Inside");
-            for(int i = 0 ; i< 10 ; i++){
+            for(int i = 0 ; i< 12 ; i++){
                 photosJSON = [[NSDictionary alloc] initWithDictionary:[[photoJSON objectForKey:key] objectAtIndex: i]];
                 NSString *farm = [photosJSON objectForKey:@"farm"];
                 NSString *server = [photosJSON objectForKey:@"server"];
@@ -180,7 +180,7 @@ MySupplementaryView *headerView;
     imageArray = [[NSMutableArray alloc]init];
     NSString *kFlickrAPIKey = @"8edbd2463db3dfed6d72a6e019f73838";
     
-    NSURL *flickrGetURL =  [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&text=%@&per_page=10&format=json&nojsoncallback=1",kFlickrAPIKey,searchTerm]];
+    NSURL *flickrGetURL =  [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&text=%@&per_page=12&format=json&nojsoncallback=1",kFlickrAPIKey,searchTerm]];
     
     NSData* data = [NSData dataWithContentsOfURL:flickrGetURL];
     NSError* error;
@@ -204,7 +204,7 @@ MySupplementaryView *headerView;
     for(NSString *key in [photoJSON allKeys]) {
         if([key  isEqual: @"photo"]){
             NSLog(@"Inside");
-            for(int i = 0 ; i< 10 ; i++){
+            for(int i = 0 ; i< 12 ; i++){
                 photosJSON = [[NSDictionary alloc] initWithDictionary:[[photoJSON objectForKey:key] objectAtIndex: i]];
                 NSString *farm = [photosJSON objectForKey:@"farm"];
                 NSString *server = [photosJSON objectForKey:@"server"];

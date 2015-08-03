@@ -19,27 +19,39 @@ int selected = 0;
     [_resetButton setEnabled:NO];
     [_calculate setEnabled:NO];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
-//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-//            {
-//                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-//                [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-//                [imagePicker setDelegate:self];
-//                [self presentViewController:imagePicker animated:YES completion:nil];
-//            }
-//            else
-//            {
-//                [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your device doesn't have a camera." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-//
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            {
+                UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+                [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+                [imagePicker setDelegate:self];
+                [self presentViewController:imagePicker animated:YES completion:nil];
+            }
+            else
+            {
+                [[[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your device doesn't have a camera." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            }
 
     
     //Temporarily choose image from gallery - to check in simulator. Uncomment the above code before deploying.
-    _touchCount = 0;
+       _touchCount = 0;
     touchPointsArray =  [[NSMutableArray alloc]init];
     
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.delegate = self;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+//    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+//    imagePickerController.delegate = self;
+//    [self presentViewController:imagePickerController animated:YES completion:nil];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureRecognizerMethod:)];
+    [_rulerImageView addGestureRecognizer:tapGestureRecognizer];
 
+}
+
+- (void)gestureRecognizerMethod:(UITapGestureRecognizer *)recognizer
+{
+    NSLog(@"Here!!");
+    if (recognizer.state == UIGestureRecognizerStateBegan || recognizer.state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint touchLocation = [recognizer locationInView:self.view];
+        NSLog(@"Touch Location %f",touchLocation.x);
+    }
 }
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -76,13 +88,13 @@ int selected = 0;
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"Handle tap!");
+    [_knownValue resignFirstResponder];
     _touchCount++;
-    [_resetButton setEnabled:YES];
-    [_calculate setEnabled:YES];
+   [_resetButton setEnabled:YES];
     if(_touchCount <= 4){
         UITouch *touch = [touches anyObject];
         CGPoint touchPoint = [touch locationInView: _rulerImageView];
+        NSLog(@"Touch Point %f",touchPoint.x);
         [self drawOverImage:touchPoint :touchPoint];
         [touchPointsArray addObject:[NSValue valueWithCGPoint:touchPoint]];
         if(_touchCount %2 == 0){
@@ -94,6 +106,11 @@ int selected = 0;
             [self drawOverImage:startPoint :endPoint];
             
         }
+    }
+    
+    if(_touchCount == 4){
+        
+        [_calculate setEnabled:YES];
     }
 }
 -(void)drawOverImage: (CGPoint)startPoint: (CGPoint)endPoint{
@@ -148,7 +165,7 @@ double coordinateDistance(CGPoint p1, CGPoint p2)
     [touchPointsArray removeAllObjects];
     _touchCount = 0;
     [_resetButton setEnabled:NO];
-    [_calculate setEnabled:YES];
+    [_calculate setEnabled:NO];
 }
 - (IBAction)calculate:(id)sender {
     NSString *inputValue = _knownValue.text;
@@ -237,8 +254,13 @@ double coordinateDistance(CGPoint p1, CGPoint p2)
 }
 
 - (IBAction)retakePhoto:(id)sender {
+    
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
                 {
+                    [touchPointsArray removeAllObjects];
+                    _touchCount = 0;
+                    [_resetButton setEnabled:NO];
+                    [_calculate setEnabled:NO];
                     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
                     [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
                     [imagePicker setDelegate:self];

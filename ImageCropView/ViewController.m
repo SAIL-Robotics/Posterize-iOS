@@ -49,6 +49,13 @@
         [_insta setHidden:YES];
         [_PosterizeImageView setImage:nil];
         imageView.image = _passImage;
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *backBtnImage = [UIImage imageNamed:@"backward_arrow.png"]  ;
+        [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+        [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
+        backBtn.frame = CGRectMake(10.0, 2.0, 45.0, 40.0);
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+        self.navigationItem.leftBarButtonItem = backButton;
     }
 
     //UIImage *btnImage = [UIImage imageNamed:@"camera_fade.png"];
@@ -70,6 +77,11 @@
     
     [ super didReceiveMemoryWarning ];
 }
+- (void)goback
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (IBAction)takeBarButtonClick:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
