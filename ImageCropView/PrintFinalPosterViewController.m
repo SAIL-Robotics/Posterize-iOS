@@ -75,7 +75,7 @@
     time_t unixTime = (time_t) [[NSDate date] timeIntervalSince1970];
     NSString *timestamp=[NSString stringWithFormat:@"%ld",unixTime];
     
-    _fileName = @"mypdf";
+    _fileName = @"Poster_";
     
     _fileName = [_fileName stringByAppendingString:timestamp];
      _fileName = [_fileName stringByAppendingString:@".pdf"];
@@ -211,4 +211,74 @@
 
 
 
+
+-(void) uploadPDFFile {
+    NSString *fileName = _fileName;
+    // post body
+    NSArray *pdfs = [[NSBundle mainBundle] pathsForResourcesOfType:@"pdf" inDirectory:nil];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *file = [documentsDirectory stringByAppendingPathComponent:_fileName];
+    //The file name passed from previous controller
+    
+    NSData *itemdata = [NSData dataWithContentsOfFile:file];
+    
+    
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://71.112.204.61/AndroidFileUpload/fileUpload.php"]];
+    [request setHTTPMethod:@"POST"];
+    
+    
+    NSString *boundary = @"---------------------------14737809831466499882746641449";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    
+    NSMutableData *postData = [NSMutableData data];
+    [postData appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Append the Usertoken
+    [postData appendData:[@"Content-Disposition: form-data; name=\"token\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[@"Content-Type: application/json\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[[NSString stringWithFormat:@"%s", "SOMETOKEN"] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Append the file
+    
+    //NSData *data = [[NSFileManager defaultManager] contentsAtPath:file];
+    
+    // Append the file
+    [postData appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image\"; filename=\"%@\"\r\n", fileName]dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[NSData dataWithData:itemdata]];
+    
+    
+    
+    // Close
+    [postData appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // Append
+    [request setHTTPBody:postData];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    NSLog(@"==> sendSyncReq returnString: %@", returnString);
+    
+    NSString* messageString = [NSString stringWithFormat: @"Your poster %@ was successfully uploaded to drive",_fileName];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
+                                                    message:messageString
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    //Toast.makeText
+    
+}
+
+
+- (IBAction)uploadServerAction:(UIButton *)sender {
+    [self uploadPDFFile];
+}
 @end
