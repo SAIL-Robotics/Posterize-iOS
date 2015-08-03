@@ -367,7 +367,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G77-CF-5vN">
-                                <rect key="frame" x="111" y="270" width="98" height="138"/>
+                                <rect key="frame" x="217" y="258" width="98" height="138"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of pages:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G60-YY-g3R">
                                 <rect key="frame" x="45" y="47" width="138" height="21"/>
@@ -393,6 +393,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-gz-yW6">
+                                <rect key="frame" x="128" y="220" width="81" height="30"/>
+                                <state key="normal" title="Locate PDF">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hxP-pT-xtv" kind="push" identifier="displayPDFSegue" id="Vbf-A0-hfB"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="File:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZX-rz-PKs">
                                 <rect key="frame" x="58" y="159" width="32" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -405,22 +414,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmi-dC-l4B">
-                                <rect key="frame" x="16" y="220" width="128" height="30"/>
-                                <state key="normal" title="Tweet">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmi-dC-l4B">
+                                <rect key="frame" x="95" y="306" width="50" height="41"/>
+                                <state key="normal" image="twitter.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="uploadServerAction:" destination="M0y-fI-nDu" eventType="touchUpInside" id="SMW-mY-K06"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-gz-yW6">
-                                <rect key="frame" x="128" y="220" width="81" height="30"/>
-                                <state key="normal" title="Locate PDF">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUV-hF-Vgb">
+                                <rect key="frame" x="170" y="303" width="51" height="48"/>
+                                <state key="normal" image="facebook.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hxP-pT-xtv" kind="push" identifier="displayPDFSegue" id="Vbf-A0-hfB"/>
+                                    <action selector="uploadFacebookAction:" destination="M0y-fI-nDu" eventType="touchUpInside" id="xGW-j4-KgW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -469,10 +478,12 @@
     </scenes>
     <resources>
         <image name="camera.png" width="88" height="85"/>
+        <image name="facebook.png" width="512" height="512"/>
         <image name="flickr.png" width="88" height="84"/>
         <image name="forward_arrow.png" width="101" height="77"/>
         <image name="gallery.png" width="91" height="84"/>
         <image name="posterize.png" width="249" height="77"/>
+        <image name="twitter.png" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
