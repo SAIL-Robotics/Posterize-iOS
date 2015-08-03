@@ -33,4 +33,6 @@
 @property (copy, nonatomic) NSString * fileName;
 
 
+- (IBAction)uploadServerAction:(UIButton *)sender;
+
 @end
