@@ -7,20 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ObjectiveFlickr.h"
 
 
 
-@interface FlickrViewController : UIViewController <OFFlickrAPIRequestDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@interface FlickrViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
-    OFFlickrAPIRequest *flickrRequest;
-    
-    UIImagePickerController *imagePicker;
-    
-    UILabel *authorizeDescriptionLabel;
-    UILabel *snapPictureDescriptionLabel;
-    UIButton *authorizeButton;
-    UIButton *snapPictureButton;
+//    OFFlickrAPIRequest *flickrRequest;
+//    
+//    UIImagePickerController *imagePicker;
+//    
+//    UILabel *authorizeDescriptionLabel;
+//    UILabel *snapPictureDescriptionLabel;
+//    UIButton *authorizeButton;
+//    UIButton *snapPictureButton;
 }
 - (IBAction)authorizeAction;
 //- (IBAction)snapPictureAction;
@@ -31,7 +31,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *snapPictureButton;
 @property (nonatomic, retain) IBOutlet UIButton *authorizeButton;
 
-@property (nonatomic, retain) OFFlickrAPIRequest *flickrRequest;
+//@property (nonatomic, retain) OFFlickrAPIRequest *flickrRequest;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (nonatomic, retain) UIImagePickerController *imagePicker;
 @end
