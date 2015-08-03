@@ -29,7 +29,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fiz-dT-SWK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zRb-bQ-cEg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="2" verticalHuggingPriority="2" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wM-B0-3ek">
@@ -184,7 +184,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XJs-3q-zPV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xfk-hN-WYw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Width" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPD-t4-mjA">
@@ -265,7 +265,7 @@
             <objects>
                 <collectionViewController id="t3Z-cV-T7o" customClass="FlickrViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1ku-Iu-bV7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="s4K-sq-qoe">
                             <size key="itemSize" width="100" height="100"/>
@@ -357,7 +357,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JN4-y9-gda"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cr4-P9-SmE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRf-4u-RnC">
