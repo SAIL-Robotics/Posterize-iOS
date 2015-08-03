@@ -175,6 +175,63 @@
             </objects>
             <point key="canvasLocation" x="329" y="708"/>
         </scene>
+        <!--Ruler Controller-->
+        <scene sceneID="njp-Uv-N3l">
+            <objects>
+                <viewController id="iem-Lk-CsM" customClass="RulerController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XHN-LW-mEK"/>
+                        <viewControllerLayoutGuide type="bottom" id="r3x-iF-3gH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tw6-Ug-8vZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ruler.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Rd5-FN-PKv">
+                                <rect key="frame" x="141" y="0.0" width="179" height="489"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="98C-HN-Q7K"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCX-9f-ncO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="-492"/>
+        </scene>
+        <!--Instructions Controller-->
+        <scene sceneID="7oF-sO-EJx">
+            <objects>
+                <viewController id="huR-DF-Add" customClass="InstructionsController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OA1-Ir-9k5"/>
+                        <viewControllerLayoutGuide type="bottom" id="nym-hx-h9S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dVb-xm-TOm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxO-oG-Fz2">
+                                <rect key="frame" x="16" y="28" width="288" height="410"/>
+                                <mutableString key="text">1. Press the Camera button to invoke the camera. Take a picture of the area where the poster needs to be placed.d
+2. Place two markers on the image. Remember you must know the distance between the two markers. For this purpose, you may use a ruler that would appear when the 'Ruler' button is clicked. Enter that distance(in cms) under 'Enter measurements'
+3. Place next set of two markers on the image. These two end points could be either the width or height of the actual poster.
+4. Now press the calculate button. You will receive a message that represents one of the dimensions.
+5. If you feel that the poster width or height is inaccurate, you can either re-enter the distance under 'Enter Measurements' or press the reset marker button and repeat the process.
+6. Now you will be prompted to set this as width or height of the image. Set it appropriately and proceed.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rM6-7j-g6O"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7b5-95-6Bo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="-505"/>
+        </scene>
         <!--Poster Measurements-->
         <scene sceneID="9xE-m5-OcW">
             <objects>
@@ -225,12 +282,30 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0BF-Fq-3Mp">
-                                <rect key="frame" x="210" y="248" width="94" height="30"/>
-                                <state key="normal" title="Camera Ruler">
+                                <rect key="frame" x="142" y="250" width="54" height="30"/>
+                                <state key="normal" title="Camera">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="u9F-Hq-Noe" kind="push" identifier="rulerSegue" id="kcP-c8-sjB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-CF-jpj">
+                                <rect key="frame" x="49" y="250" width="36" height="30"/>
+                                <state key="normal" title="Ruler">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="iem-Lk-CsM" kind="push" identifier="openRuler" id="DQQ-55-HcE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36q-nr-fIe">
+                                <rect key="frame" x="223" y="250" width="73" height="31"/>
+                                <state key="normal" title="?">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="huR-DF-Add" kind="push" identifier="instructionsSegue" id="2MB-oT-XjG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -592,6 +667,7 @@
         <image name="forward_arrow.png" width="101" height="77"/>
         <image name="gallery.png" width="91" height="84"/>
         <image name="posterize.png" width="249" height="77"/>
+        <image name="ruler.jpg" width="405" height="1240"/>
         <image name="twitter.png" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "PosterController.h"
 #import "CameraRuler.h"
+#import "RulerController.h"
+#import "InstructionsController.h"
 
 @interface UserInputViewController ()
 
@@ -145,8 +147,19 @@
         CameraRuler *cr = (CameraRuler *)segue.destinationViewController;
         cr.originalImage = _image;
     
-    
     }
+    if([segue.identifier isEqualToString:@"openRuler"]){
+        RulerController *controller = (RulerController *)segue.destinationViewController;
+        // controller.widthString = widthText;
+
+    }
+    
+    if([segue.identifier isEqualToString:@"instructionsSegue"]){
+        InstructionsController *controller = (InstructionsController *)segue.destinationViewController;
+        // controller.widthString = widthText;
+        
+    }
+    
     
     }
 

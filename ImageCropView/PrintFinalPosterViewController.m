@@ -228,7 +228,7 @@
     
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://71.112.204.61/AndroidFileUpload/fileUpload.php"]];
+    [request setURL:[NSURL URLWithString:@"http://54.200.90.145:8001/AndroidFileUpload/fileUpload.php"]];
     //The server url - in future change it here.
     [request setHTTPMethod:@"POST"];
     
@@ -297,7 +297,7 @@
     
     mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     
-    NSString *statusMessage = @"Check out the new poster I created using @posterize_app http://71.112.204.61/AndroidFileUpload/uploads/";
+    NSString *statusMessage = @"Check out the new poster I created using @posterize_app http://54.200.90.145:8001/AndroidFileUpload/uploads/";
     
     statusMessage = [statusMessage stringByAppendingString:_fileName];
     
@@ -324,7 +324,7 @@
     
     mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     
-    NSString *statusMessage = @"Check out the new poster I created using @posterize_app http://71.112.204.61/AndroidFileUpload/uploads/";
+    NSString *statusMessage = @"Check out the new poster I created using @posterize_app http://54.200.90.145:8001/AndroidFileUpload/uploads/";
     
     statusMessage = [statusMessage stringByAppendingString:_fileName];
     

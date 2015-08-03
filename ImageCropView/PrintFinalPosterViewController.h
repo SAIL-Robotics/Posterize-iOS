@@ -12,6 +12,7 @@
     
 }
 
+
 @property (assign, nonatomic) double totalA4Width;
 @property (assign, nonatomic) double totalA4Height;
 

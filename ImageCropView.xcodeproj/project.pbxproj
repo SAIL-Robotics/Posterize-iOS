@@ -28,6 +28,12 @@
 		93B115F51B6D3A5900FA0831 /* backward_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B115F41B6D3A5900FA0831 /* backward_arrow.png */; };
 		93B115F81B6DF29600FA0831 /* FlickrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B115F71B6DF29600FA0831 /* FlickrViewController.m */; };
 		93B115FC1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B115FB1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m */; };
+		93B115FE1B70226E00FA0831 /* ruler.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 93B115FD1B70226E00FA0831 /* ruler.jpg */; };
+		93B116051B7023A400FA0831 /* RulerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B116031B7023A400FA0831 /* RulerController.h */; };
+		93B116061B7023A400FA0831 /* RulerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B116041B7023A400FA0831 /* RulerController.m */; };
+		93B116091B70257200FA0831 /* InstructionsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B116071B70257200FA0831 /* InstructionsController.h */; };
+		93B1160A1B70257200FA0831 /* InstructionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B116081B70257200FA0831 /* InstructionsController.m */; };
+		93B1160C1B70326000FA0831 /* posterize_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B1160B1B70326000FA0831 /* posterize_icon.png */; };
 		96CFD13F168D308D00BAEEE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD13E168D308D00BAEEE6 /* UIKit.framework */; };
 		96CFD141168D308D00BAEEE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD140168D308D00BAEEE6 /* Foundation.framework */; };
 		96CFD143168D308D00BAEEE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD142168D308D00BAEEE6 /* CoreGraphics.framework */; };
@@ -77,6 +83,12 @@
 		93B115F91B6DFB5600FA0831 /* SampleAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleAPIKey.h; sourceTree = "<group>"; };
 		93B115FA1B6EC2D000FA0831 /* DisplayFinalPDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayFinalPDFViewController.h; sourceTree = "<group>"; };
 		93B115FB1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayFinalPDFViewController.m; sourceTree = "<group>"; };
+		93B115FD1B70226E00FA0831 /* ruler.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ruler.jpg; sourceTree = "<group>"; };
+		93B116031B7023A400FA0831 /* RulerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulerController.h; sourceTree = "<group>"; };
+		93B116041B7023A400FA0831 /* RulerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulerController.m; sourceTree = "<group>"; };
+		93B116071B70257200FA0831 /* InstructionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsController.h; sourceTree = "<group>"; };
+		93B116081B70257200FA0831 /* InstructionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsController.m; sourceTree = "<group>"; };
+		93B1160B1B70326000FA0831 /* posterize_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = posterize_icon.png; sourceTree = "<group>"; };
 		96CFD13A168D308D00BAEEE6 /* ImageCropView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCropView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CFD13E168D308D00BAEEE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		96CFD140168D308D00BAEEE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -226,6 +238,10 @@
 				379BF6341B6C1DAE003180B7 /* PrintFinalPosterViewController.m */,
 				96CFD156168D308D00BAEEE6 /* ViewController.h */,
 				96CFD157168D308D00BAEEE6 /* ViewController.m */,
+				93B116031B7023A400FA0831 /* RulerController.h */,
+				93B116041B7023A400FA0831 /* RulerController.m */,
+				93B116071B70257200FA0831 /* InstructionsController.h */,
+				93B116081B70257200FA0831 /* InstructionsController.m */,
 			);
 			name = Demo;
 			path = ImageCropView;
@@ -234,6 +250,8 @@
 		C2AA0C7E1B69C81B006B3D71 /* EffectsView */ = {
 			isa = PBXGroup;
 			children = (
+				93B1160B1B70326000FA0831 /* posterize_icon.png */,
+				93B115FD1B70226E00FA0831 /* ruler.jpg */,
 				3704058F1B6F27E100B54A25 /* twitter.png */,
 				370405911B6F284700B54A25 /* facebook.png */,
 				370048A01B6D9847006F08F7 /* welcome_page_final.jpg */,
@@ -272,6 +290,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B116051B7023A400FA0831 /* RulerController.h in Headers */,
+				93B116091B70257200FA0831 /* InstructionsController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,8 +358,10 @@
 				370048A71B6D98C0006F08F7 /* gallery.png in Resources */,
 				96CFD151168D308D00BAEEE6 /* Default.png in Resources */,
 				96CFD153168D308D00BAEEE6 /* Default@2x.png in Resources */,
+				93B115FE1B70226E00FA0831 /* ruler.jpg in Resources */,
 				370048A51B6D98B1006F08F7 /* flickr.png in Resources */,
 				370048A11B6D9847006F08F7 /* welcome_page_final.jpg in Resources */,
+				93B1160C1B70326000FA0831 /* posterize_icon.png in Resources */,
 				96CFD155168D308D00BAEEE6 /* Default-568h@2x.png in Resources */,
 				370048A31B6D98A6006F08F7 /* camera.png in Resources */,
 				3700489D1B6D5798006F08F7 /* background_crop_image.jpg in Resources */,
@@ -357,11 +379,13 @@
 				C29EA7DC1B6D97EF001585C8 /* CameraRuler.m in Sources */,
 				96CFD14B168D308D00BAEEE6 /* main.m in Sources */,
 				C2AA0C931B69D3DB006B3D71 /* UIImage+Filtrr.m in Sources */,
+				93B1160A1B70257200FA0831 /* InstructionsController.m in Sources */,
 				C2AA0C811B69C85A006B3D71 /* EffectsView.m in Sources */,
 				96CFD14F168D308D00BAEEE6 /* AppDelegate.m in Sources */,
 				C2AA0C951B69D3DB006B3D71 /* UIImage+Scale.m in Sources */,
 				93B115F81B6DF29600FA0831 /* FlickrViewController.m in Sources */,
 				6B85BF2719F74EA400B7F16A /* FXBlurView.m in Sources */,
+				93B116061B7023A400FA0831 /* RulerController.m in Sources */,
 				C2AA0C941B69D3DB006B3D71 /* UIImage+FiltrrCompositions.m in Sources */,
 				C2555BA31B6F1C3200C235EB /* MySupplementaryView.m in Sources */,
 				96CFD158168D308D00BAEEE6 /* ViewController.m in Sources */,
