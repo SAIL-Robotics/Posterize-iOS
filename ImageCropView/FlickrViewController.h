@@ -11,27 +11,22 @@
 
 
 
-@interface FlickrViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface FlickrViewController : UICollectionViewController 
 {
-//    OFFlickrAPIRequest *flickrRequest;
-//    
-//    UIImagePickerController *imagePicker;
-//    
-//    UILabel *authorizeDescriptionLabel;
-//    UILabel *snapPictureDescriptionLabel;
-//    UIButton *authorizeButton;
-//    UIButton *snapPictureButton;
+    NSMutableArray *searchImages;
+    NSMutableArray *imageArray;
+
 }
-- (IBAction)authorizeAction;
-//- (IBAction)snapPictureAction;
+
+
 - (IBAction)searchButton:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UILabel *authorizeDescriptionLabel;
 @property (nonatomic, retain) IBOutlet UILabel *snapPictureDescriptionLabel;
 @property (nonatomic, retain) IBOutlet UIButton *snapPictureButton;
 @property (nonatomic, retain) IBOutlet UIButton *authorizeButton;
-
-//@property (nonatomic, retain) OFFlickrAPIRequest *flickrRequest;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UIImage *selectedImage;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (nonatomic, retain) UIImagePickerController *imagePicker;
 @end

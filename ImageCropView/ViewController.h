@@ -45,7 +45,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *crop;
 
 @property (weak, nonatomic) IBOutlet UIButton *measure;
-
+@property (weak, nonatomic) IBOutlet UIImage *passImage;
 @property (nonatomic, assign) BOOL isMeasurement; //To check if the measurement screen has arrived
 
 @property (copy, nonatomic) NSString * widthString;

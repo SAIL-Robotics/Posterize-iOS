@@ -33,14 +33,24 @@
     [_insta setHidden:NO];
     
     imageView.image = nil;
-    //Setting up the loading screen
+        //Setting up the loading screen
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]]];
 
     
     UIImage *imagePosterize = [UIImage imageNamed:@"posterize.png"];
     [_PosterizeImageView setImage:imagePosterize];
-    
+    if(_passImage != nil){
+        
+        [_crop setHidden:NO];
+        [_camera setHidden:YES];
+        [_posterize setHidden:YES];
+        [_gallery setHidden:YES];
+        [_insta setHidden:YES];
+        [_PosterizeImageView setImage:nil];
+        imageView.image = _passImage;
+    }
+
     //UIImage *btnImage = [UIImage imageNamed:@"camera_fade.png"];
     //[_camera setImage:btnImage forState:UIControlStateNormal];
     self.navigationItem.title = @"";
@@ -158,9 +168,9 @@
     
     BOOL hasMeasurementDone = [self isMeasurement];
     if(!hasMeasurementDone) {
-        if(image != nil){
+        if(imageView.image != nil){
             NSLog(@"Crop view controller called!");
-            ImageCropViewController *controller = [[ImageCropViewController alloc] initWithImage:image];
+            ImageCropViewController *controller = [[ImageCropViewController alloc] initWithImage:imageView.image];
             controller.delegate = self;
             controller.blurredBackground = YES;
             [self.navigationController pushViewController:controller animated:YES];

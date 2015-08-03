@@ -36,6 +36,7 @@
 		96CFD155168D308D00BAEEE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96CFD154168D308D00BAEEE6 /* Default-568h@2x.png */; };
 		96CFD158168D308D00BAEEE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CFD157168D308D00BAEEE6 /* ViewController.m */; };
 		96CFD163168D309800BAEEE6 /* ImageCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CFD162168D309800BAEEE6 /* ImageCropView.m */; };
+		C2555BA31B6F1C3200C235EB /* MySupplementaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2555BA21B6F1C3200C235EB /* MySupplementaryView.m */; };
 		C29EA7DC1B6D97EF001585C8 /* CameraRuler.m in Sources */ = {isa = PBXBuildFile; fileRef = C29EA7DB1B6D97EF001585C8 /* CameraRuler.m */; };
 		C2AA0C811B69C85A006B3D71 /* EffectsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA0C801B69C85A006B3D71 /* EffectsView.m */; };
 		C2AA0C931B69D3DB006B3D71 /* UIImage+Filtrr.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AA0C8E1B69D3DB006B3D71 /* UIImage+Filtrr.m */; };
@@ -87,6 +88,9 @@
 		96CFD157168D308D00BAEEE6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		96CFD161168D309800BAEEE6 /* ImageCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropView.h; sourceTree = "<group>"; };
 		96CFD162168D309800BAEEE6 /* ImageCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropView.m; sourceTree = "<group>"; };
+		C2555B9F1B6F015400C235EB /* UICollectionViewController_FlickrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewController_FlickrViewController.h; sourceTree = "<group>"; };
+		C2555BA11B6F1B7000C235EB /* MySupplementaryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySupplementaryView.h; sourceTree = "<group>"; };
+		C2555BA21B6F1C3200C235EB /* MySupplementaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySupplementaryView.m; sourceTree = "<group>"; };
 		C29EA7DA1B6D97DB001585C8 /* CameraRuler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraRuler.h; sourceTree = "<group>"; };
 		C29EA7DB1B6D97EF001585C8 /* CameraRuler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraRuler.m; sourceTree = "<group>"; };
 		C2AA0C7F1B69C847006B3D71 /* EffectsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EffectsView.h; sourceTree = "<group>"; };
@@ -197,9 +201,12 @@
 				96CFD14E168D308D00BAEEE6 /* AppDelegate.m */,
 				9343B5AC1B6B27C400CEDA36 /* PosterController.h */,
 				C29EA7DA1B6D97DB001585C8 /* CameraRuler.h */,
+				C2555BA21B6F1C3200C235EB /* MySupplementaryView.m */,
+				C2555B9F1B6F015400C235EB /* UICollectionViewController_FlickrViewController.h */,
 				93B115F61B6DF29600FA0831 /* FlickrViewController.h */,
 				93B115F71B6DF29600FA0831 /* FlickrViewController.m */,
 				C29EA7DB1B6D97EF001585C8 /* CameraRuler.m */,
+				C2555BA11B6F1B7000C235EB /* MySupplementaryView.h */,
 				9343B5AD1B6B27D900CEDA36 /* PosterController.m */,
 				93B115FA1B6EC2D000FA0831 /* DisplayFinalPDFViewController.h */,
 				93B115FB1B6EC2D000FA0831 /* DisplayFinalPDFViewController.m */,
@@ -333,6 +340,7 @@
 				93B115F81B6DF29600FA0831 /* FlickrViewController.m in Sources */,
 				6B85BF2719F74EA400B7F16A /* FXBlurView.m in Sources */,
 				C2AA0C941B69D3DB006B3D71 /* UIImage+FiltrrCompositions.m in Sources */,
+				C2555BA31B6F1C3200C235EB /* MySupplementaryView.m in Sources */,
 				96CFD158168D308D00BAEEE6 /* ViewController.m in Sources */,
 				37B7A76D1B69CE82006C2070 /* UserInputViewController.m in Sources */,
 				9343B5AE1B6B27D900CEDA36 /* PosterController.m in Sources */,
