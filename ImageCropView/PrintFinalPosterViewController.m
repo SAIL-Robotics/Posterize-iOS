@@ -8,6 +8,7 @@
 
 #import "PrintFinalPosterViewController.h"
 #import "DisplayFinalPDFViewController.h"
+#import <Social/Social.h>
 
 @interface PrintFinalPosterViewController ()
 
@@ -228,6 +229,7 @@
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:@"http://71.112.204.61/AndroidFileUpload/fileUpload.php"]];
+    //The server url - in future change it here.
     [request setHTTPMethod:@"POST"];
     
     
@@ -266,19 +268,79 @@
     NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     NSLog(@"==> sendSyncReq returnString: %@", returnString);
     
-    NSString* messageString = [NSString stringWithFormat: @"Your poster %@ was successfully uploaded to drive",_fileName];
+    /*NSString* messageString = [NSString stringWithFormat: @"Your poster %@ was successfully uploaded to drive",_fileName];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success!"
                                                     message:messageString
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
-    [alert show];
-    //Toast.makeText
+    [alert show];*/
     
 }
 
 
 - (IBAction)uploadServerAction:(UIButton *)sender {
     [self uploadPDFFile];
+    [self tweetStatus];
+}
+
+- (IBAction)uploadFacebookAction:(UIButton *)sender {
+    [self uploadPDFFile];
+    [self uploadStatus];
+}
+
+-(void) tweetStatus{
+    
+    SLComposeViewController *mySLComposerSheet;
+    
+    mySLComposerSheet = [[SLComposeViewController alloc] init];
+    
+    mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    
+    NSString *statusMessage = @"Check out the new poster I created using @posterize_app http://71.112.204.61/AndroidFileUpload/uploads/";
+    
+    statusMessage = [statusMessage stringByAppendingString:_fileName];
+    
+    [mySLComposerSheet setInitialText:statusMessage];
+    
+    [self presentViewController:mySLComposerSheet animated:YES completion:nil];
+    
+    
+   /* UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"Success"
+                              message:@"Tweeted successfully!"
+                              delegate:self
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+    [alertView show];
+    */
+
+}
+-(void) uploadStatus{
+    
+    SLComposeViewController *mySLComposerSheet;
+    
+    mySLComposerSheet = [[SLComposeViewController alloc] init];
+    
+    mySLComposerSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    NSString *statusMessage = @"Check out the new poster I created using @posterize_app http://71.112.204.61/AndroidFileUpload/uploads/";
+    
+    statusMessage = [statusMessage stringByAppendingString:_fileName];
+    
+    [mySLComposerSheet setInitialText:statusMessage];
+    
+    [self presentViewController:mySLComposerSheet animated:YES completion:nil];
+    
+    
+    /* UIAlertView *alertView = [[UIAlertView alloc]
+     initWithTitle:@"Success"
+     message:@"Updated status successfully!"
+     delegate:self
+     cancelButtonTitle:@"OK"
+     otherButtonTitles:nil];
+     [alertView show];
+     */
+    
 }
 @end

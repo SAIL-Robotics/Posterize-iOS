@@ -34,5 +34,6 @@
 
 
 - (IBAction)uploadServerAction:(UIButton *)sender;
+- (IBAction)uploadFacebookAction:(UIButton *)sender;
 
 @end
