@@ -151,7 +151,12 @@
     }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-   
+    
+    NSLog(@"identifier %@",identifier);
+    
+    if([identifier isEqualToString:@"posterSegue"])
+    {
+        
     NSString *widthText = _widthText.text;
     NSString *heightText = _heightText.text;
     
@@ -192,6 +197,7 @@
         
         NSLog(@"the two are @%f @%f",widthDouble,heightDouble);
         
+    }
     }
     
    
