@@ -33,7 +33,8 @@
 		93B116061B7023A400FA0831 /* RulerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B116041B7023A400FA0831 /* RulerController.m */; };
 		93B116091B70257200FA0831 /* InstructionsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B116071B70257200FA0831 /* InstructionsController.h */; };
 		93B1160A1B70257200FA0831 /* InstructionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B116081B70257200FA0831 /* InstructionsController.m */; };
-		93B1160C1B70326000FA0831 /* posterize_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B1160B1B70326000FA0831 /* posterize_icon.png */; };
+		93B1160E1B70353100FA0831 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93B1160D1B70353100FA0831 /* Images.xcassets */; };
+		93B116101B70399300FA0831 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 93B1160F1B70399300FA0831 /* ios */; };
 		96CFD13F168D308D00BAEEE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD13E168D308D00BAEEE6 /* UIKit.framework */; };
 		96CFD141168D308D00BAEEE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD140168D308D00BAEEE6 /* Foundation.framework */; };
 		96CFD143168D308D00BAEEE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CFD142168D308D00BAEEE6 /* CoreGraphics.framework */; };
@@ -88,7 +89,8 @@
 		93B116041B7023A400FA0831 /* RulerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RulerController.m; sourceTree = "<group>"; };
 		93B116071B70257200FA0831 /* InstructionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsController.h; sourceTree = "<group>"; };
 		93B116081B70257200FA0831 /* InstructionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsController.m; sourceTree = "<group>"; };
-		93B1160B1B70326000FA0831 /* posterize_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = posterize_icon.png; sourceTree = "<group>"; };
+		93B1160D1B70353100FA0831 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		93B1160F1B70399300FA0831 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ios; sourceTree = "<group>"; };
 		96CFD13A168D308D00BAEEE6 /* ImageCropView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCropView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CFD13E168D308D00BAEEE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		96CFD140168D308D00BAEEE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -193,6 +195,7 @@
 			children = (
 				96CFD162168D309800BAEEE6 /* ImageCropView.m */,
 				96CFD161168D309800BAEEE6 /* ImageCropView.h */,
+				93B1160D1B70353100FA0831 /* Images.xcassets */,
 			);
 			path = ImageCropView;
 			sourceTree = "<group>";
@@ -250,7 +253,7 @@
 		C2AA0C7E1B69C81B006B3D71 /* EffectsView */ = {
 			isa = PBXGroup;
 			children = (
-				93B1160B1B70326000FA0831 /* posterize_icon.png */,
+				93B1160F1B70399300FA0831 /* ios */,
 				93B115FD1B70226E00FA0831 /* ruler.jpg */,
 				3704058F1B6F27E100B54A25 /* twitter.png */,
 				370405911B6F284700B54A25 /* facebook.png */,
@@ -347,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CFD149168D308D00BAEEE6 /* InfoPlist.strings in Resources */,
+				93B1160E1B70353100FA0831 /* Images.xcassets in Resources */,
 				370405901B6F27E100B54A25 /* twitter.png in Resources */,
 				9343B5B21B6D36A000CEDA36 /* camera_fade.png in Resources */,
 				93B115F51B6D3A5900FA0831 /* backward_arrow.png in Resources */,
@@ -359,9 +363,9 @@
 				96CFD151168D308D00BAEEE6 /* Default.png in Resources */,
 				96CFD153168D308D00BAEEE6 /* Default@2x.png in Resources */,
 				93B115FE1B70226E00FA0831 /* ruler.jpg in Resources */,
+				93B116101B70399300FA0831 /* ios in Resources */,
 				370048A51B6D98B1006F08F7 /* flickr.png in Resources */,
 				370048A11B6D9847006F08F7 /* welcome_page_final.jpg in Resources */,
-				93B1160C1B70326000FA0831 /* posterize_icon.png in Resources */,
 				96CFD155168D308D00BAEEE6 /* Default-568h@2x.png in Resources */,
 				370048A31B6D98A6006F08F7 /* camera.png in Resources */,
 				3700489D1B6D5798006F08F7 /* background_crop_image.jpg in Resources */,
@@ -461,6 +465,8 @@
 		96CFD15F168D308D00BAEEE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageCropView/ImageCropView-Prefix.pch";
@@ -473,6 +479,8 @@
 		96CFD160168D308D00BAEEE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageCropView/ImageCropView-Prefix.pch";
